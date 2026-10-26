@@ -1,0 +1,6 @@
+{
+  "name": "OmniAI Studio - استودیو جامع هوش مصنوعی",
+  "description": "استودیو جامع هوش مصنوعی برای تولید نامحدود متن، تصویر و ویدیو با کیفیت بالا، همگام‌سازی ابری و کارکرد آفلاین",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
