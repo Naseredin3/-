@@ -6,6 +6,7 @@ import { CloudSyncView } from './components/CloudSyncView';
 import { SecurityView } from './components/SecurityView';
 import { OfflineToolsView } from './components/OfflineToolsView';
 import { PreviewModal } from './components/PreviewModal';
+import { HelpModal } from './components/HelpModal';
 import {
   GeneratedItem,
   CloudVaultConfig,
@@ -25,6 +26,7 @@ import {
 export default function App() {
   const [lang, setLang] = useState<'fa' | 'en'>('fa');
   const [activeTab, setActiveTab] = useState<'studio' | 'library' | 'sync' | 'security' | 'offline'>('studio');
+  const [isHelpOpen, setIsHelpOpen] = useState(false);
 
   // Core Data
   const [items, setItems] = useState<GeneratedItem[]>([]);
@@ -185,6 +187,7 @@ export default function App() {
         libraryCount={items.length}
         lang={lang}
         setLang={setLang}
+        onOpenHelp={() => setIsHelpOpen(true)}
       />
 
       {/* Main View Area */}
@@ -259,6 +262,13 @@ export default function App() {
           setSelectedPreviewItem(null);
           setActiveTab('offline');
         }}
+        lang={lang}
+      />
+
+      {/* Quick Interactive Help Modal */}
+      <HelpModal
+        isOpen={isHelpOpen}
+        onClose={() => setIsHelpOpen(false)}
         lang={lang}
       />
 

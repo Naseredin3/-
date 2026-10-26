@@ -22,6 +22,7 @@ interface NavbarProps {
   libraryCount: number;
   lang: 'fa' | 'en';
   setLang: (lang: 'fa' | 'en') => void;
+  onOpenHelp: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -34,6 +35,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   libraryCount,
   lang,
   setLang,
+  onOpenHelp,
 }) => {
   const isFa = lang === 'fa';
 
@@ -179,6 +181,16 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Globe className="w-3.5 h-3.5 text-slate-400" />
               <span>{isFa ? 'EN' : 'فا'}</span>
+            </button>
+
+            {/* Help / Tour Guide button */}
+            <button
+              onClick={onOpenHelp}
+              className="flex items-center gap-1 px-2.5 py-1 rounded-xl text-xs font-bold bg-indigo-600/20 hover:bg-indigo-600/30 text-indigo-300 border border-indigo-500/30 transition"
+              title={isFa ? 'راهنمای استفاده' : 'Quick Guide'}
+            >
+              <Sparkles className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline">{isFa ? 'راهنما' : 'Help'}</span>
             </button>
           </div>
         </div>
